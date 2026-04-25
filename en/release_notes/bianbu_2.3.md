@@ -19,6 +19,24 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - This source provides packages for all future 2.3.x versions (e.g., 2.3.1), which are hosted in `bianbu-v2.3-updates`.  
 - To download source packages, modify `Types: deb` to `Types: deb deb-src`.
 
+## V2.3.3
+
+**Release Date:** 2026-03-02
+
+The corresponding **BSP version:** [v2.2.9](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k1_buildroot/release_notes/bl-v2.2.y.md)
+
+### Major updates to LXQt desktop components
+
+**1. UI**
+
+- Refined the Calamares installer interface
+
+- Improved the login interface
+
+**2. Applications**
+
+- Introduced the in-house developed Bianbu Control Center, featuring modules for user management, Bluetooth, network, Wi-Fi, power, volume, display, and time settings.
+
 ## V2.3.0
 
 **Release Date:** 2025-12-15
