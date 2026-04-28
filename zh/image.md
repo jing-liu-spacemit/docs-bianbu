@@ -18,11 +18,14 @@ sidebar_position: 2
 
 ## 下载
 
-- GNOME: [镜像下载](https://archive.spacemit.com/image/k1/version/bianbu/)
+### K1
 
-- LXQt: [镜像下载](https://archive.spacemit.com/image/k1/version/bianbu/)
+- [镜像下载](https://spacemit.com/community/resources-download/Images%20Collects/K1/Bianbu)
+- [历史版本](https://archive.spacemit.com/image/k1/version/bianbu/)
 
-- Minimal: [镜像下载](https://archive.spacemit.com/image/k1/version/bianbu/)
+### K3
+
+- [镜像下载](https://spacemit.com/community/resources-download/Images%20Collects/K3/Bianbu)
 
 ## 刷机
 
