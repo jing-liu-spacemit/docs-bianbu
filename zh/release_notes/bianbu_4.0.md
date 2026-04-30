@@ -10,7 +10,7 @@ sidebar_position: 3
 
 **注意：Bianbu 4.0镜像仅支持K3。**
 
-对应的**BSP**版本：[V1.0](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.0.md)
+对应的**BSP**版本：[V1.0](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
 
 ### LXQt桌面
 
