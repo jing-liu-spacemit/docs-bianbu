@@ -9,4 +9,5 @@ slug: /release_notes
 
 - [Bianbu V2.2 更新说明](bianbu_2.2.md) [长期支持版本]
 - [Bianbu V2.3 更新说明](bianbu_2.3.md)
+- [Bianbu V4.0 更新说明(仅支持K3)](bianbu_4.0.md)
 - [历史版本](history/index.md)
