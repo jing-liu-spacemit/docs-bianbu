@@ -5,9 +5,9 @@ slug: /release_notes
 
 # Release Notes
 
-This section documents the release notes for Bianbu versions, including long-term support (LTS) releases.  
-For details on deprecated and archived versions, refer to the release history.
+This section provides release notes for each Bianbu version.
 
 - [Bianbu V2.2 Release Notes](bianbu_2.2.md) [LTS]
-- [Bianbu V2.3 Release Notes](bianbu_2.3.md) [LTS]
+- [Bianbu V2.3 Release Notes](bianbu_2.3.md)
+- [Bianbu V4.0 Release Notes (K3 only)](bianbu_4.0.md)
 - [Release History](./history/index.md)

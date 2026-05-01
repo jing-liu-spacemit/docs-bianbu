@@ -1,0 +1,68 @@
+---
+sidebar_position: 3
+---
+
+# Bianbu V4.0 Release Notes
+
+## V4.0 Release Notes
+
+**Release Date:** 2026-04-30
+
+**Note:** Bianbu 4.0 images support K3 only.
+
+The corresponding **BSP version:** [V1.0](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+
+### LXQt Desktop
+
+- The in-house `bianbu-control-center` adds new modules for Language & Region, Desktop Settings, Notification Settings, Software Updates, and About.
+- Status bar notifications default to Do Not Disturb mode.
+- snapshot, VLC media player, Zed, and GNOME System Monitor are installed by default. cheese is no longer included in the default installation.
+
+### Core Components and Applications in Bianbu V4.0
+
+**Applications**
+
+- Chromium 143
+- LibreOffice
+- VSCodium
+- mpv
+- fcitx5
+- snapshot
+- VLC media player
+- Zed
+- GNOME System Monitor
+
+**Application Frameworks**
+
+- Qt 5.15.8
+- Qt 6.10.2
+- GTK 3.24.51
+- GTK 4.21.6
+
+**Multimedia Frameworks**
+
+- FFmpeg 8.0 (with hardware accelerated)
+- GStreamer 1.28.0 (with hardware accelerated)
+- PipeWire 1.6.0
+
+**AI Inference Frameworks**
+
+- spacemit-onnxruntime
+- llama.cpp-tools-spacemit
+
+**Runtimes**
+
+- Python 3.14.3
+- OpenJDK
+- Node.js
+
+**Libraries**
+
+- OpenCV 4.14.0
+- OpenSSL 3.5.3
+- MPP, SpacemiT's multimedia processing platform, with C APIs and sample programs
+- Mesa 3D 24.01
+
+**Toolchain**
+
+- GCC 15
