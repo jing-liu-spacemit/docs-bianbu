@@ -1,6 +1,5 @@
 ---
-sidebar_position: 3
-slug: /release_notes/history
+sidebar_position: 4
 ---
 
 # 历史版本
