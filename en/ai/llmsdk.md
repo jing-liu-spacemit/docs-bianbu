@@ -9,47 +9,50 @@
  * @FilePath: \doc\docs-bianbu\zh\ai\llmsdk.md
  * @Description: 
 -->
+
 ---
 sidebar_position: 17
 ---
 
 # LLM SDK
 
-## 安装服务
+## Install the service
 
 ```bash
 sudo apt update
 sudo apt install llm-sdk
 ```
 
-
 **Base URL:** `http://localhost:8050`
 
 ---
 
-##  API目录
+## API Directory
 
 - [System](#system)
-- [Models - 模型管理](#models---模型管理)
-- [Chat - 聊天](#chat---聊天)
-- [Sessions - 会话管理](#sessions---会话管理)
-- [Knowledge Bases - 知识库管理](#knowledge-bases---知识库管理)
-- [Config - 配置管理](#config---配置管理)
-- [Assets - 静态资源](#assets---静态资源)
+- [Models](#models)
+- [Chat](#chat)
+- [Sessions](#sessions)
+- [Knowledge Bases](#knowledge-bases)
+- [Config](#config)
+- [Assets](#assets)
 
 ---
 
 ## System
 
 ### GET `/`
-根路径，返回 API 基本信息。
 
-**请求示例 (curl)：**
+Root path. Returns the basic API information.
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {"message": "llm-sdk LLM Chat API"}
 ```
@@ -57,42 +60,49 @@ curl -X GET http://localhost:8050/
 ---
 
 ### GET `/api/health`
-健康检查。
 
-**请求示例 (curl)：**
+Health check.
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/health
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {"status": "healthy", "app": "llm-sdk"}
 ```
 
 ---
 
-## Models - 模型管理
+## Models
 
-**前缀：** `/api/models`
+**Prefix:** `/api/models`
 
-模型类型（`model_type`）可选值：`llm` | `embed` | `rerank`
+Valid values for `model_type`: `llm` | `embed` | `rerank`
 
 ---
 
 ### GET `/api/models/list`
-获取指定类型的所有模型列表（从数据库读取）。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Get the full model list for the specified type from the database.
 
-**请求示例 (curl)：**
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/list
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {
   "models": [
@@ -112,19 +122,23 @@ curl -X GET http://localhost:8050/api/models/list
 ---
 
 ### GET `/api/models/current`
-获取当前运行的模型信息。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Get information about the currently running model.
 
-**请求示例 (curl)：**
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/current
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {
   "mode": "llm",
@@ -137,26 +151,31 @@ curl -X GET http://localhost:8050/api/models/current
 ---
 
 ### POST `/api/models/download`
-触发模型下载（后台异步，立即返回）。
 
-**请求体（JSON）：**
+Trigger model download asynchronously in the background and return immediately.
+
+**Request body (JSON):**
+
 ```json
 {"model_id": 1}
 ```
 
-**请求示例 (curl)：**
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/download \
   -H "Content-Type: application/json" \
   -d "{\"model_id\": 1}"
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {"success": true, "message": "Download started for Qwen2.5-7B-Q4"}
 ```
 
-若已下载：
+If already downloaded:
+
 ```json
 {"success": true, "already_downloaded": true, "message": "Model already downloaded"}
 ```
@@ -164,21 +183,25 @@ curl -X POST http://localhost:8050/api/models/download \
 ---
 
 ### POST `/api/models/download/cancel`
-取消正在进行的模型下载。
 
-**请求体（JSON）：**
+Cancel an ongoing model download.
+
+**Request body (JSON):**
+
 ```json
 {"model_id": 1}
 ```
 
-**请求示例 (curl)：**
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/download/cancel \
   -H "Content-Type: application/json" \
   -d "{\"model_id\": 1}"
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {"success": true, "message": "Download cancelled for Qwen2.5-7B-Q4"}
 ```
@@ -186,19 +209,23 @@ curl -X POST http://localhost:8050/api/models/download/cancel \
 ---
 
 ### GET `/api/models/download/status`
-获取指定模型的下载状态。
 
-**查询参数：**
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| model_id | int | 否 | 模型 ID |
+Get the download status of the specified model.
 
-**请求示例 (curl)：**
+**Query parameters:**
+
+| Parameter | Type | Required | Description |
+| --------- | ---- | -------- | ----------- |
+| model_id  | int  | No       | Model ID    |
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/download/status
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {
   "status": "downloading",
@@ -209,46 +236,54 @@ curl -X GET http://localhost:8050/api/models/download/status
 }
 ```
 
-`status` 可选值：`not_started` | `downloading` | `completed` | `error`
+Valid `status` values: `not_started` | `downloading` | `completed` | `error`
 
 ---
 
 ### GET `/api/models/download/status/all` (SSE)
-SSE 流式推送所有模型的下载状态。
 
-**查询参数：**
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| model_type | string | 否 | 筛选指定类型 |
+Push the download status of all models through SSE.
 
-**请求示例 (curl)：**
+**Query parameters:**
+
+| Parameter  | Type   | Required | Description          |
+| ---------- | ------ | -------- | -------------------- |
+| model_type | string | No       | Filter by model type |
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/download/status/all
 ```
 
-**SSE 事件格式：**
-```
+**SSE event format:**
+
+```text
 data: {"tasks": {"1": {"status": "downloading", "progress": 0.5}}, "timestamp": 12345.0}
 ```
 
 ---
 
 ### POST `/api/models/start`
-启动指定模型的 llama-server。
 
-**请求体（JSON）：**
+Start the `llama-server` for the specified model.
+
+**Request body (JSON):**
+
 ```json
 {"model_id": 1}
 ```
 
-**请求示例 (curl)：**
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/start \
   -H "Content-Type: application/json" \
   -d "{\"model_id\": 1}"
 ```
 
-**响应示例：**
+**Response example:**
+
 ```json
 {"success": true, "message": "Server started"}
 ```
@@ -256,14 +291,19 @@ curl -X POST http://localhost:8050/api/models/start \
 ---
 
 ### POST `/api/models/start_all`
-在后台启动所有模式（llm/embed/rerank）的当前模型服务器。
 
-**请求示例 (curl)：**
+Start the current model servers for all modes (`llm` / `embed` / `rerank`) in the background.
+
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/start_all
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {"success": true, "message": "Starting all model servers in background"}
 ```
@@ -271,14 +311,19 @@ curl -X POST http://localhost:8050/api/models/start_all
 ---
 
 ### POST `/api/models/stop_all`
-停止所有模式（llm/embed/rerank）的模型服务器。
 
-**请求示例 (curl)：**
+Stop model servers for all modes (`llm` / `embed` / `rerank`).
+
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/stop_all
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {"success": true, "message": "All model servers stopped"}
 ```
@@ -286,21 +331,28 @@ curl -X POST http://localhost:8050/api/models/stop_all
 ---
 
 ### POST `/api/models/stop`
-停止指定模型对应类型的服务器。
 
-**请求体（JSON）：**
+Stop the server for the specified model type.
+
+
+**Request body (JSON):**
+
 ```json
 {"model_id": 1}
 ```
 
-**请求示例 (curl)：**
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/stop \
   -H "Content-Type: application/json" \
   -d "{\"model_id\": 1}"
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {"success": true, "message": "Server stopped"}
 ```
@@ -308,21 +360,28 @@ curl -X POST http://localhost:8050/api/models/stop \
 ---
 
 ### POST `/api/models/set_current`
-将指定模型设为对应类型的当前模型（仅更新数据库，不启动服务器）。
 
-**请求体（JSON）：**
+Set the specified model as the current model for its type. This updates the database only and does not start the server.
+
+
+**Request body (JSON):**
+
 ```json
 {"model_id": 1}
 ```
 
-**请求示例 (curl)：**
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/set_current \
   -H "Content-Type: application/json" \
   -d "{\"model_id\": 1}"
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {"success": true, "message": "Set Qwen2.5-7B-Q4 as current llm model"}
 ```
@@ -330,19 +389,26 @@ curl -X POST http://localhost:8050/api/models/set_current \
 ---
 
 ### GET `/api/models/server_status`
-查询指定模式服务器的当前状态（单次）。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Query the current server status of the specified mode once.
 
-**请求示例 (curl)：**
+
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/server_status
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {
   "status": "running",
@@ -352,39 +418,51 @@ curl -X GET http://localhost:8050/api/models/server_status
 }
 ```
 
-`status` 可选值：`not_started` | `starting` | `running` | `error` | `stopped`
+Valid `status` values: `not_started` | `starting` | `running` | `error` | `stopped`
 
 ---
 
 ### GET `/api/models/server_status/stream` (SSE)
-SSE 流式推送服务器状态，频率根据状态自动调整（启动中 0.5s，运行中 3s，其他 2s）。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Push server status through SSE. The refresh interval is adjusted automatically by state: 0.5 s while starting, 3 s while running, and 2 s otherwise.
 
-**请求示例 (curl)：**
+
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/server_status/stream
 ```
 
-**SSE 事件格式：**
-```
+
+**SSE event format:**
+
+```text
 data: {"status": "running", "model_name": "...", "model_path": "...", "error_message": null, "timestamp": 12345.0}
 ```
 
 ---
 
 ### GET `/api/models/all/stream` (SSE)
-SSE 统一流：同时推送 llm、embed、rerank 三种模式的服务器状态和下载进度。
 
-**请求示例 (curl)：**
+Unified SSE stream that simultaneously pushes server status and download progress for `llm`, `embed`, and `rerank` modes.
+
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/all/stream
 ```
 
-**SSE 事件格式：**
+
+**SSE event format:**
+
 ```json
 {
   "modes": {
@@ -402,14 +480,19 @@ curl -X GET http://localhost:8050/api/models/all/stream
 ---
 
 ### GET `/api/models/get_param`
-获取指定类型的模型参数（服务器参数 + 客户端参数）。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Get model parameters for the specified type, including server-side and client-side parameters.
 
-**响应示例（llm）：**
+
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+
+**Response example (`llm`):**
+
 ```json
 {
   "context_size": 4096,
@@ -422,9 +505,11 @@ curl -X GET http://localhost:8050/api/models/all/stream
 }
 ```
 
-embed 额外字段：`normalize`, `truncate`；rerank 额外字段：`top_n`, `return_documents`
+Additional fields for `embed`: `normalize`, `truncate`; additional fields for `rerank`: `top_n`, `return_documents`.
 
-**请求示例 (curl)：**
+
+**Request example (curl):**
+
 ```bash
 curl -X GET http://localhost:8050/api/models/get_param
 ```
@@ -432,14 +517,19 @@ curl -X GET http://localhost:8050/api/models/get_param
 ---
 
 ### POST `/api/models/update_param`
-更新模型参数并保存到数据库。服务器参数变化会自动重启服务器；客户端参数立即生效。
 
-**查询参数：**
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| model_type | string | 是 | 模型类型 |
+Update model parameters and save them to the database. Changes to server parameters restart the server automatically; client parameters take effect immediately.
 
-**请求体（JSON，所有字段可选）：**
+
+**Query parameters:**
+
+| Parameter  | Type   | Required | Description |
+| ---------- | ------ | -------- | ----------- |
+| model_type | string | Yes      | Model type  |
+
+
+**Request body (JSON, all fields optional):**
+
 ```json
 {
   "context_size": 4096,
@@ -456,12 +546,16 @@ curl -X GET http://localhost:8050/api/models/get_param
 }
 ```
 
-**请求示例 (curl)：**
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/update_param
 ```
 
-**响应示例：**
+
+**Response example:**
+
 ```json
 {
   "success": true,
@@ -474,36 +568,46 @@ curl -X POST http://localhost:8050/api/models/update_param
 ---
 
 ### POST `/api/models/reset_param`
-重置指定类型的模型参数为默认值，若服务器正在运行则自动重启。
 
-**查询参数：**
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| model_type | string | `llm` | 模型类型 |
+Reset model parameters of the specified type to defaults. If the server is running, it restarts automatically.
 
-**请求示例 (curl)：**
+
+**Query parameters:**
+
+| Parameter  | Type   | Default | Description |
+| ---------- | ------ | ------- | ----------- |
+| model_type | string | `llm`   | Model type  |
+
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/models/reset_param
 ```
 
-**响应：** 返回重置后的完整参数（同 `get_param` 格式）
+
+**Response:** returns the full reset parameter set, using the same format as `GET /api/models/get_param`.
 
 ---
 
-## Chat - 聊天
+## Chat
 
-**前缀：** `/api`
+**Prefix:** `/api`
 
 ---
 
 ### POST `/api/chat`
-发送聊天消息，支持流式（SSE）和非流式两种响应。
 
-支持两种模式：
-- **普通对话**：ConversationChain（带历史上下文）
-- **RAG 对话**：提供 `kb_ids` 时自动切换为 RAGChain（检索增强生成）
+Send a chat message. Both streaming (SSE) and non-streaming responses are supported.
 
-**请求体（JSON）：**
+Two modes are supported:
+
+- **Standard conversation**: `ConversationChain` with conversation history.
+- **RAG conversation**: automatically switches to `RAGChain` when `kb_ids` is provided.
+
+
+**Request body (JSON):**
+
 ```json
 {
   "message": {
@@ -520,29 +624,35 @@ curl -X POST http://localhost:8050/api/models/reset_param
 }
 ```
 
-| 字段 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| message | object | 是 | 用户消息，包含 role 和 content |
-| session_id | int | 是 | 会话 ID |
-| stream | bool | 否 | 是否流式响应，默认 `true` |
-| kb_ids | string[] | 否 | 知识库 ID 列表，提供则使用 RAG |
-| temperature | float | 否 | 覆盖默认温度参数 |
-| repeat_penalty | float | 否 | 覆盖默认重复惩罚参数 |
-| max_tokens | int | 否 | 覆盖最大生成 token 数 |
+| Field          | Type     | Required | Description                                         |
+| -------------- | -------- | -------- | --------------------------------------------------- |
+| message        | object   | Yes      | User message containing `role` and `content`        |
+| session_id     | int      | Yes      | Session ID                                          |
+| stream         | bool     | No       | Whether to use streaming response, default `true`   |
+| kb_ids         | string[] | No       | Knowledge base ID list; enables RAG when provided   |
+| temperature    | float    | No       | Overrides the default temperature                   |
+| repeat_penalty | float    | No       | Overrides the default repeat penalty                |
+| max_tokens     | int      | No       | Overrides the maximum generated token count         |
 
-**流式响应（SSE）格式：**
-```
+
+**Streaming response (SSE) format:**
+
+```text
 data: {"data": "你好", "done_flag": false}
 data: {"data": "！", "done_flag": false}
 data: {"data": "", "done_flag": true}
 ```
 
-**非流式响应：**
+
+**Non-streaming response:**
+
 ```json
 {"response": "你好！我是一个AI助手..."}
 ```
 
-**请求示例 (curl)：**
+
+**Request example (curl):**
+
 ```bash
 curl -X POST http://localhost:8050/api/chat \
   -H "Content-Type: application/json" \
@@ -551,9 +661,9 @@ curl -X POST http://localhost:8050/api/chat \
 
 ---
 
-## Sessions - 会话管理
+## Sessions
 
-**前缀：** `/api/sessions`
+**Prefix:** `/api/sessions`
 
 ---
 

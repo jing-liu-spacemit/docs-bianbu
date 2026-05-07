@@ -17,12 +17,14 @@ sidebar_position: 12
 ### 1. Install Dependencies
 
 Install the required system dependencies:
+
 ```bash
 sudo apt update
 sudo apt install python3-venv libffi-dev libssl-dev pkg-config
 ```
 
 Install Rust:
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
 source ~/.cargo/env

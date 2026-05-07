@@ -6,6 +6,14 @@ sidebar_position: 1
 
 [ONNX Runtime](https://onnxruntime.ai/) is a cross-platform inference and training machine-learning accelerator. To get faster inference speeds for applications, we developed the SpaceMIT Execution Provider, which uses extended AI instructions for acceleration. Simply specify `SpaceMITExecutionProvider` when developing the application.
 
+## Platform Support
+
+| Platform & System     | Acceleration Support |
+|-----------------------|----------------------|
+| K1 Buildroot          | ✅ Supported         |
+| K1 OpenHarmony 5.0    | ❌ Not supported     |
+| K3 Bianbu LXQT/GNOME  | ✅ Supported         |
+
 ## Installation
 
 ```shell
@@ -28,7 +36,7 @@ The final output `['SpaceMITExecutionProvider', 'CPUExecutionProvider']` indicat
 
 ## Using Python API
 
-### Prerequisites
+### Install dependencies
 
 ```shell
 sudo apt-get install -y python3-onnx python3-pillow python3-matplotlib python3-opencv
@@ -106,7 +114,7 @@ def predict(path):
     print('time=%.2fms; class=%s; probability=%f' % (round((end-start) * 1000, 2), labels[a[0]], preds[a[0]]))
 ```
 
-### Load model, label and inference
+### Load model, labels, and run inference
 
 ```python
 with open('classification/synset.txt', 'r') as f:
@@ -116,6 +124,7 @@ with open('classification/synset.txt', 'r') as f:
 session_options = ort.SessionOptions()
 session_options.intra_op_num_threads = 2
 
+# IMPORTANT: Specify the SpaceMITExecutionProvider
 session = ort.InferenceSession('classification/resnet50/resnet50.q.onnx', sess_options=session_options, providers=["SpaceMITExecutionProvider"])
 
 img_path = 'classification/kitten.jpg'

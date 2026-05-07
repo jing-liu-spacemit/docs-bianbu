@@ -6,41 +6,42 @@ sidebar_position: 6
 
 ## Introduction
 
-LocalAI is a complete AI stack for running AI models locally. Designed to be simple, efficient, and accessible, it provides an alternative to OpenAI's API. Users can run large language models (LLMs), image generation, speech transcription, and other AI tasks on consumer-grade hardware (including CPU environments) while maintaining data privacy and security.
+LocalAI is a complete AI stack for running AI models locally. It is designed to be simple, efficient, and accessible, and provides an OpenAI-compatible API. Users can run large language models (LLMs), image generation, speech transcription, and other AI workloads on consumer-grade hardware, including CPU-only environments, while keeping data private and secure.
 
-This document details how to compile, install, and use LocalAI from source on our Bianbu platform, along with adding custom inference backends.
+This document mainly explains how to compile, install, and use LocalAI from source on the Bianbu platform, and how to add custom inference backends.
 
-## Compilation and Installation Steps
+## Build and installation steps
 
-### Install System Dependencies
+### Install system dependencies
 
 ```bash
 sudo apt update
 sudo apt install cmake golang libgrpc-dev make protobuf-compiler-grpc python3-grpc-tools
 
-# Uninstall existing protobuf
+# Uninstall existing protobuf versions
 sudo apt-get remove --purge protobuf-compiler libprotobuf-dev
 sudo apt-get autoremove
-sudo rm /usr/local/bin/protoc          # Remove executable
-sudo rm -rf /usr/local/include/google  # Remove headers
-sudo rm -rf /usr/local/lib/libproto*   # Remove libraries
-sudo rm -rf /usr/lib/protoc            # Other possible paths
+sudo rm /usr/local/bin/protoc          # remove executable
+sudo rm -rf /usr/local/include/google  # remove headers
+sudo rm -rf /usr/local/lib/libproto*   # remove libraries
+sudo rm -rf /usr/lib/protoc            # other possible path
 
 sudo apt-get install autoconf automake libtool curl make gcc-14 g++-14 unzip
 
-# Switch to /usr/bin, delete symlinks for:
+# Switch to /usr/bin, then remove:
 # gcc, g++, gcc-ar, gcc-nm, gcc-ranlib,
 # riscv64-linux-gnu-gcc, riscv64-linux-gnu-gcc-ar, riscv64-linux-gnu-gcc-nm,
 # riscv64-linux-gnu-gcc-ranlib, riscv64-linux-gnu-g++
-# Then create new symlinks pointing to version 14
-# Example:
+# and recreate symlinks to the corresponding version 14 binaries
+# for example:
 # sudo rm /usr/bin/gcc
 # sudo ln -s /usr/bin/gcc-14 /usr/bin/gcc
 
-# Compile and install protobuf from source
+# Download, compile, and install protobuf from source
 wget https://github.com/protocolbuffers/protobuf/releases/download/v3.20.3/protobuf-cpp-3.20.3.tar.gz
-tar xvzf protobuf-cpp-3.20.3.tar.gz 
-cd protobuf-3.20.3/cmake
+tar xvzf protobuf-cpp-3.20.3.tar.gz
+cd protobuf-3.20.3/
+cd cmake
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local .
 cmake --build . --parallel 8
 ctest --verbose
@@ -54,63 +55,66 @@ sudo apt install libgrpc++-dev
 
 ### Compile LocalAI
 
-Download our source code and compile:
+Download our source package and compile it as follows:
 
 ```bash
 wget https://archive.spacemit.com/spacemit-ai/localai/localai.tar.gz
 tar xvzf localai.tar.gz
 
-# Navigate to project directory
+# Switch to the project directory
 cd localai
 
-# Add Go binary path to environment
+# Add the Go bin directory to PATH so tools installed via go install can be run directly
+# protoc-gen-go and other tools installed during the build rely on this
 export PATH=$PATH:$(go env GOPATH)/bin
 
-# Use Aliyun proxy for faster module downloads
+# Use the Aliyun proxy to speed up Go module downloads
 export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 
-# Compile
+# Build
 make build
 
-# If errors occur, run make clean before rebuilding
+# If the build fails, fix the issue, then run make clean before rebuilding
 ```
 
-## Adding Custom Inference Backends
+## Add custom inference backends
 
-### Add RISC-V Accelerated llama.cpp Backend
+### Add the RISC-V accelerated llama.cpp backend
 
-Our modify llama.cpp with RISC-V acceleration and package it as a grpc-server binary. Deploy using:
+We internally modified `llama.cpp` to support RISC-V acceleration and packaged it as a gRPC server binary named `llama-cpp-riscv-spacemit`. Deploy it with the following command:
 
 ```bash
 cd backend/cpp/spacemit-llama-cpp
 bash install.sh
 ```
 
-The script downloads the RISC-V accelerated llama-cpp-grpc-server binary and quantized models, configures directories, and generates config files.
-Run **./local-ai --debug** from the project root to start LocalAI.
-Test via browser at <http://localhost:8080/chat/>.
+Running `install.sh` downloads the prebuilt RISC-V accelerated `llamacpp-grpc-server` binary and quantized models, places them into the proper directories, and creates the related configuration files.
 
-If encountering shared library error
+Return to the project root and run `./local-ai --debug` to start LocalAI.
+Then open <http://localhost:8080/chat/> in a browser to test it.
 
-    stderr llama-cpp-riscv-spacemit: error while loading shared libraries: libabsl_synchronization.so.20220623: No such file.
+If you encounter the following error when invoking the backend:
 
-Fix with:
+```text
+stderr llama-cpp-riscv-spacemit: error while loading shared libraries: libabsl_synchronization.so.20220623: cannot open shared object file: No such file or directory
+```
+
+fix it with:
 
 ```bash
 sudo apt install libabsl-dev
 sudo ln -s /usr/lib/riscv64-linux-gnu/libabsl_synchronization.so /usr/lib/riscv64-linux-gnu/libabsl_synchronization.so.20220623
 ```
 
-To use other LLM models with our accelerated backend, you can
+If you want to use our accelerated `llamacpp` backend with other models, you can:
 
 - Download models from <https://archive.spacemit.com/spacemit-ai/gguf/>
-- Get corresponding modelfiles from <https://archive.spacemit.com/spacemit-ai/modelfile/>
-- Create a new config file (e.g., models/spacemit-qwen2.5-0.5b-instruct.yaml), adjusting model name, stop words, and template based on the modelfile.
+- Download the corresponding modelfiles from <https://archive.spacemit.com/spacemit-ai/modelfile/>
+- Create a new model configuration file based on `models/spacemit-qwen2.5-0.5b-instruct.yaml`. Update the model name, stop words, and template to match the new model. The template section can refer to the modelfile content.
 
-### Add RISC-V Accelerated ASR Backend
+### Add the RISC-V accelerated ASR backend
 
-The project source code is located at `backend/cpp/spacemit-asr-cpp`.  
-Use the following commands to build the backend and restart `local-ai`:
+The project code is located in `backend/cpp/spacemit-asr-cpp`. Deploy it and restart `local-ai` with:
 
 ```bash
 cd backend/cpp/spacemit-asr-cpp
@@ -120,20 +124,19 @@ cd ../../../
 ./local-ai --debug
 ```
 
-Test with the following commands:
+Then test it with:
 
 ```bash
-# Prepare audio file test.wav
+# Prepare an audio file named test.wav in advance
 curl -X POST http://localhost:8080/v1/audio/transcriptions \
     -H "Content-Type: multipart/form-data" \
     -F "file=@test.wav" \
     -F "model=sensevoicesmall-cpp"
 ```
 
-### Add C++ TTS Backend
+### Add the C++ TTS backend
 
-The project source code is located at `backend/cpp/matcha-tts-cpp`.
-Use the following commands to build the backend and restart `local-ai`:
+The project code is located in `backend/cpp/matcha-tts-cpp`. Deploy it and restart `local-ai` with:
 
 ```bash
 cd backend/cpp/matcha-tts-cpp
@@ -143,11 +146,11 @@ cd ../../../
 ./local-ai --debug
 ```
 
-Test with the following commands:
+Then test it with:
 
 ```bash
 curl -X POST "http://localhost:8080/tts" \
-    -H "Content-Type: application/json" \
-    -d '{"input":"Hello, how is the weather today","model":"matcha-tts-cpp"}' \
-    -o output.wav 
+     -H "Content-Type: application/json" \
+     -d '{"input":"你好，今天天气怎么样","model":"matcha-tts-cpp"}' \
+     -o output.wav
 ```
