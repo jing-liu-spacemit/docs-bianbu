@@ -2,6 +2,6 @@
 sidebar_position: 16
 ---
 
-# 灵狐（keenfox）
+# 见智（Seewise）
 TBD
 
