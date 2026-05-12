@@ -6,6 +6,5 @@
 - [用户指南](./user_guide/index.md)
 - [开发指南](./development/index.md)
 - [AI](./ai/index.md)
-- [机器人](./robot/index.md)
 - [系统集成](./system_integration/index.md)
 - [常见问题](faqs.md)
