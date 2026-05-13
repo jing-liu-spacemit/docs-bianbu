@@ -70,9 +70,9 @@ Bianbu 支持运行主流的推理框架，并深度适配了 ONNX Runtime，可
 
 ## 4. Application
 
-- [知了(zenow)](zenow.md)
-- [与会(yumeet)](yumeet.md)
-- [灵狐(keenfox)](keenfox.md)
+- [知了(Zenow)](zenow.md)
+- [与会(Yumeet)](yumeet.md)
+- [见智(Seewise)](seewise.md)
 
 ## 5. SDK
 
