@@ -4,6 +4,21 @@ sidebar_position: 3
 
 # Bianbu V4.0 更新说明
 
+基于Ubuntu 26.04源码构建
+
+Bianbu 4.0源：
+
+```
+Types: deb
+URIs: https://archive.spacemit.com/bianbu4/
+Suites: resolute resolute-security resolute-updates resolute-backports resolute-porting resolute-customization
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
+```
+
+- 使用此源即可安装到后续的 V4.0.x（如 V4.0.1）发布的包。
+- 如需下载源码，请将`Types: deb`改成`Types: deb deb-src`。
+
 ## V4.0 更新说明
 
 发布日期：2026-4-30
