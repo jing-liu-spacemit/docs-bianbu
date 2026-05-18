@@ -4,6 +4,21 @@ sidebar_position: 3
 
 # Bianbu V4.0 Release Notes
 
+Built from the Ubuntu 26.04 source base.
+
+Bianbu 4.0 repository:
+
+```
+Types: deb
+URIs: https://archive.spacemit.com/bianbu4/
+Suites: resolute resolute-security resolute-updates resolute-backports resolute-porting resolute-customization
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
+```
+
+- Using this repository enables installation of packages released in subsequent V4.0.x versions, such as V4.0.1.
+- To download source packages, change `Types: deb` to `Types: deb deb-src`.
+
 ## V4.0 Release Notes
 
 **Release Date:** 2026-04-30
