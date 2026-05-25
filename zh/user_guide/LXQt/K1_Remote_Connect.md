@@ -8,7 +8,7 @@
 
 ![](static/remote1.png)
 
-打开Ubuntu电脑终端，输入指令查看当前串口设备：
+上位机通过USB转TTL设备与MUSE Pi Pro开发板的GND、TX、RX接口连接。示意图如下：
 
 **Step1:** 执行：
 
@@ -385,7 +385,7 @@ remmina
 
 下载 **MobaXterm** 串口调试工具，官方参考链接：
 
-https://mobaxterm.mobatek.net/
+<https://mobaxterm.mobatek.net/>
 
 下载**RealVNC**客户端或者**TigerVNC**客户端
 
