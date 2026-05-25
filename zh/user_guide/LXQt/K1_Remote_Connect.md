@@ -10,7 +10,7 @@
 
 打开Ubuntu电脑终端，输入指令查看当前串口设备：
 
-**Step1:**
+**Step1:** 执行：
 
    ```
 ls /dev/ttyUSB* 2>/dev/null || ls /dev/ttyACM*
@@ -96,13 +96,13 @@ wpa_cli -i wlan0 set_network 0 ssid "\"WiFi名称\""
 wpa_cli -i wlan0 set_network 0 psk "\"WiFi密码\""
    ```
 
-**Step4:**
+**Step4:** 执行：
 
    ```
 wpa_cli -i wlan0 enable_network 0
    ```
 
-**Step5:**
+**Step5:** 执行：
 
    ```
 /sbin/dhcpcd wlan0
@@ -220,7 +220,7 @@ XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" WAYLAND_DISPLAY="$WAYLAND_DISPLAY" wayvnc 0.0
 
 推荐使用  **Remmina** 客户端，配置方式如下：
 
-**Step9:** 1）安装 Remmina
+**Step9:** 安装 Remmina
 
    ``` 
 sudo apt update
@@ -229,7 +229,7 @@ sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-se
 
 ![](static/remote16.png)
 
-**Step10:** 2）启动 Remmina
+**Step10:** 启动 Remmina
 
    ```
 remmina
@@ -237,7 +237,7 @@ remmina
 
 ![](static/remote17.png)
 
-3）在连接配置中：
+在连接配置中：
 
 协议选择  VNC；
 
@@ -359,7 +359,7 @@ XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" WAYLAND_DISPLAY="$WAYLAND_DISPLAY" wayvnc 0.0
 
 推荐使用  **Remmina** 客户端：
 
-**Step7:** 1）启动 Remmina
+**Step7:** 启动 Remmina
 
    ```
 remmina
@@ -367,7 +367,7 @@ remmina
 
 ![](static/remote17.png)
 
-2）在连接配置中：
+在连接配置中：
 
 协议选择  VNC；
 
@@ -477,7 +477,7 @@ wpa_cli -i wlan0 set_network 0 psk "\"WiFi密码\""
 
 ![](static/remote36.png)
 
-**Step4:**
+**Step4:** 执行：
 
    ```
 wpa_cli -i wlan0 enable_network 0
@@ -563,7 +563,7 @@ kill 实际进程号
 
 ![](static/remote43.png)
 
-**Step6:** 执行
+**Step6:** 执行：
 
    ```
 systemctl restart sddm
@@ -604,7 +604,7 @@ XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" WAYLAND_DISPLAY="$WAYLAND_DISPLAY" wayvnc 0.0
 
 ![](static/remote46.png)
 
-**Step9:**
+**Step9:** 使用 VNC 客户端连接开发板：
 
 **注意**：使用任何 VNC
 客户端连接开发板，上位机与开发板必须处于同一局域网（例如连接到同一个Wi-Fi 或路由器）
@@ -713,7 +713,7 @@ sudo sed -i '1a export LABWC_FALLBACK_OUTPUT="NOOP-fallback"\nexport LABWC_VIRTU
 
 ![](static/remote56.png)
 
-**Step4:** 执行
+**Step4:** 执行：
 
    ```
 systemctl restart sddm
@@ -733,7 +733,7 @@ WAYLAND_SOCKET=$(find /run/user -path "/run/user/0/*" -prune -o -name "wayland-*
 
 ![](static/remote59.png)
 
-**Step6:**
+**Step6:** 执行：
 
    ```
 XDG_RUNTIME_DIR=$(dirname "$WAYLAND_SOCKET")
@@ -741,7 +741,7 @@ XDG_RUNTIME_DIR=$(dirname "$WAYLAND_SOCKET")
 
 ![](static/remote60.png)
 
-**Step7:**
+**Step7:** 执行：
 
    ```
 WAYLAND_DISPLAY=$(basename "$WAYLAND_SOCKET")
@@ -757,7 +757,7 @@ XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" WAYLAND_DISPLAY="$WAYLAND_DISPLAY" wayvnc 0.0
 
 ![](static/remote62.png)
 
-**Step9:**
+**Step9:** 使用 VNC 客户端连接开发板：
 
 **注意**：使用任何 VNC
 客户端连接开发板，上位机与开发板必须处于同一局域网（例如连接到同一个Wi-Fi 或路由器）
