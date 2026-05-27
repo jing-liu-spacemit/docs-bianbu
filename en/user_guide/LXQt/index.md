@@ -19,3 +19,7 @@ The Bianbu LXQt User Guide provides documentation for using the LXQt desktop env
 ## Hardware Expansion
 
 - [MUSE Pi / MUSE Pi Pro Expansion I/O Definitions](MUSEPi_and_MUSEPiPro_expansion_IO_pinout.md)
+
+## 指南
+
+- [Remote Desktop Access Guide](K1_Remote_Connect.md)
