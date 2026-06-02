@@ -19,13 +19,39 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - 使用此源即可安装到后续的 V4.0.x（如 V4.0.1）发布的包。
 - 如需下载源码，请将`Types: deb`改成`Types: deb deb-src`。
 
-## V4.0 更新说明
+## V4.0.1 更新说明
+
+发布日期：2026-5-29
+
+对应的**BSP**版本：[V1.0.2](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+
+### LXQt桌面主要更新
+
+- 新增外观设置
+- 新增桌面工作空间切换
+- 引导页面支持兼容小分辨率屏幕
+
+### 基础组件主要更新
+
+**应用**
+
+- 软件源升级适配为Ubuntu 26.04正式源
+
+**Boot**
+
+- 修复reboot fastboot无法烧录的问题
+
+**显示**
+
+- wlroot修复休眠唤醒后桌面背景概率性丢失问题
+
+## V4.0.0 更新说明
 
 发布日期：2026-4-30
 
-**注意：Bianbu 4.0镜像仅支持K3。**
+**注意：Bianbu V4.0版本镜像仅支持K3。**
 
-对应的**BSP**版本：[V1.0](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+对应的**BSP**版本：[V1.0.0](https://spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
 
 ### LXQt桌面
 
