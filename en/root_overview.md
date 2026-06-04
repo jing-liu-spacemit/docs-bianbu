@@ -37,7 +37,7 @@ Bianbu is composed of the following key components:
 - U-Boot
 - OpenSBI
 
-Bianbu manages the packages of these components through the [APT source](http://archive.spacemit.com/bianbu-ports/), and follow the standard Debian package format.
+Bianbu manages the packages of these components through the APT source, using the standard Debian package format.
 
 ### Applications
 
@@ -91,26 +91,31 @@ The Linux kernel is responsible for managing the processor and other hardware re
 - Device driver management
 - Network protocol stack
 
-Supported versions:
+Supported versions and source links:
 
-- **6.1**: [https://gitee.com/spacemit-buildroot/linux-6.1](https://gitee.com/spacemit-buildroot/linux-6.1) (EOL)
-- **6.6**:  [https://gitee.com/spacemit-buildroot/linux-6.6](https://gitee.com/spacemit-buildroot/linux-6.6) (LTS)
+- 6.1: [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.1) (EOL)
+- 6.6: [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.6) / [[github]](https://github.com/spacemit-com/linux-6.6) (LTS)
+- 6.18: [[gitee]](https://gitee.com/spacemit-buildroot/linux-6.18) / [[github]](https://github.com/spacemit-com/linux-6.18)
 
 ### U-Boot
 
 U-Boot is a bootloader responsible for initializing specific hardware and loading the Linux kernel image, device tree, and initial RAM filesystem from media (such as SD card, eMMC, SPI Flash, SSD, network).
 
 - Version: u-boot-2022.10
-- Source code: [https://gitee.com/spacemit-buildroot/uboot-2022.10](https://gitee.com/spacemit-buildroot/uboot-2022.10)
+- Source code: [[gitee]](https://gitee.com/spacemit-buildroot/uboot-2022.10) / [[github]](https://github.com/spacemit-com/uboot-2022.10)
 
 ### OpenSBI
 
 OpenSBI is an implementation of the Supervisor Binary Interface for RISC-V architecture processors, running in M-mode firmware, providing interfaces for bootloaders, hypervisors, and operating systems to access hardware.
 
-- Version: 1.3
-- Source code: [https://gitee.com/spacemit-buildroot/opensbi](https://gitee.com/spacemit-buildroot/opensbi)
+Supported versions and source links:
+
+- 1.3: [[gitee]](https://gitee.com/spacemit-buildroot/opensbi) / [[github]](https://github.com/spacemit-com/opensbi)
+- 1.6: [[gitee]](https://gitee.com/spacemit-buildroot/opensbi/tree/k3-br-v1.0.y/) / [[github]](https://github.com/spacemit-com/opensbi/tree/k3-br-v1.0.y)
 
 ## Supported Devices
+
+### K1
 
 - BPI-F3
 - Milk-V Jupiter
@@ -120,19 +125,21 @@ OpenSBI is an implementation of the Supervisor Binary Interface for RISC-V archi
 - MUSE Box
 - MUSE Book
 
+### K3
+
+- Pico ITX
+- CoM260 Kit
+
 ## Release Information
 
-- **Bianbu 1.0** (End of Life)  
-  Latest version: v1.0.15
+- [Bianbu 1.0](./release_notes/history/bianbu_1.0.md) (End of Life)
 
-- **Bianbu 2.x** (K1 Long-Term Maintenance Version)
+- [Bianbu 2.x](./release_notes/bianbu_2.3.md) (K1 Long-Term Maintenance Version)
 
-  Latest version: v2.2.1
+- [Bianbu 3.x](./release_notes/history/bianbu_3.0.md)
 
-- **Bianbu 3.x**  
-  Latest version: v3.0.1
+- [Bianbu 4.x](./release_notes/bianbu_4.0.md) (K3 only)
 
 ## Feedback & Issues
 
-Please report issues and suggestions via:  
-[https://gitee.com/bianbu/bianbu-docs/issues](https://gitee.com/bianbu/bianbu-docs/issues).
+[https://gitee.com/bianbu/bianbu-docs/issues](https://gitee.com/bianbu/bianbu-docs/issues)
