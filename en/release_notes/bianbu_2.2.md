@@ -25,7 +25,7 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 
 Corresponding **BSP** version: [v2.2.7](https://www.spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/release_notes/bl-v2.2.y.md)
 
-### Major Updates
+### Major updates to Bianbu OS basic components
 
 - Added support for the Lichee Pi 3A board
 

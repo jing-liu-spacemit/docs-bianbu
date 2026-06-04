@@ -19,13 +19,39 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - Using this repository enables installation of packages released in subsequent V4.0.x versions, such as V4.0.1.
 - To download source packages, change `Types: deb` to `Types: deb deb-src`.
 
-## V4.0 Release Notes
+## V4.0.1 Release Notes
+
+**Release Date:** 2026-05-29
+
+The corresponding **BSP version:** [V1.0.2](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+
+### LXQt Desktop
+
+- Added appearance settings.
+- Added desktop workspace switching.
+- Boot screen now supports lower-resolution displays.
+
+### Core Components
+
+**Applications**
+
+- Package repository upgraded to the official Ubuntu 26.04 source.
+
+**Boot**
+
+- Fixed an issue where `reboot fastboot` could not flash firmware.
+
+**Display**
+
+- wlroots: fixed an intermittent issue where the desktop background was lost after suspend/resume.
+
+## V4.0.0 Release Notes
 
 **Release Date:** 2026-04-30
 
 **Note:** Bianbu 4.0 images support K3 only.
 
-The corresponding **BSP version:** [V1.0](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+The corresponding **BSP version:** [V1.0.0](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
 
 ### LXQt Desktop
 
