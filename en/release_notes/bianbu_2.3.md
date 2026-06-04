@@ -27,15 +27,15 @@ The corresponding **BSP version:** [v2.2.9](https://www.spacemit.com/community/d
 
 ### Major updates to LXQt desktop components
 
-**1. UI**
+1. **UI**
 
-- Refined the Calamares installer interface
+   - Refined the Calamares installer interface
 
-- Improved the login interface
+   - Improved the login interface
 
-**2. Applications**
+2. **Applications**
 
-- Introduced the in-house developed Bianbu Control Center, featuring modules for user management, Bluetooth, network, Wi-Fi, power, volume, display, and time settings.
+   - Introduced the in-house developed Bianbu Control Center, featuring modules for user management, Bluetooth, network, Wi-Fi, power, volume, display, and time settings.
 
 ## V2.3.0
 
@@ -45,28 +45,21 @@ The corresponding **BSP version:** [v2.2](https://www.spacemit.com/community/doc
 
 ### Major updates to LXQt desktop components
 
-**1. UI**
+1. **UI**
 
-- Optimized status bar user experience
+   - Optimized status bar user experience
+   - Customized Calamares installer interface
+   - Added SpacemiT SDDM theme
+   - Simplified Panel operations
+   - Simplified file browser operations
+   - Added Wayland lock screen support
+   - Added SpacemiT Qt system theme
 
-- Customized Calamares installer interface
+2. **Applications**
 
-- Support for Bianbu Star SDDM theme
+   - Added support for Yongzhong Office (installable)
 
-- Simplified Panel operations
+3. **Performance**
 
-- Simplified file browser operations
-
-- Support for Wayland lock screen application
-
-- Support for Bianbu Star Qt system theme
-
-**2. Applications**
-
-- Support for Yongzhong Office (installable)
-
-**3. Performance**
-
-- Optimized system startup time
-
-- LibreOffice uses Qt6 GPU acceleration
+   - Optimized system startup time
+   - LibreOffice now uses Qt6 GPU acceleration
