@@ -18,3 +18,6 @@ Below are some development guide:
 - [AMD R600 Graphics Card Usage Guide](r600.md)
 - [read-only-rootfs-config Usage Instructions](system-restore.md)
 - [Package Hosting Service](dak.md)
+- [K3 NOR Second Boot Device Configuration Guide](second_boot_device_guide.md)
+- [RT-Linux User Guide](rt-linux_guide.md)
+- [ESOS Development Guide](esos-dev-guide.md)
