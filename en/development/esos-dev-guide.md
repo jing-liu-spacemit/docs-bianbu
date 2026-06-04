@@ -2,7 +2,7 @@
 sidebar_position: 14
 ---
 
-# ESOS Developer Guide
+# ESOS Development Guide
 
 ESOS is a system built on RT-Thread that runs on the RCPU. Its functionality covers two main areas:
 
@@ -183,7 +183,7 @@ wget https://archive.spacemit.com/ros2/prebuilt/esos_sh/update_esos_from_dir.sh
 bash update_esos_from_dir.sh /root/firmware
 ```
 
-When the script reports completion (see screenshot below), reboot the board.
+When the process completes successfully, as shown below, reboot the development board.
 
 ![](./static/esos-update.png)
 
@@ -195,8 +195,8 @@ This output comes from `~/esos/bsp/spacemit/applications/main.c`. Changing the p
 
 ## Application Development Overview
 
-- The K3 board has two RCPUs. RCPU0 handles power and performance management alongside the main core — leave it unchanged. Write your custom real-time logic on RCPU1.
-- Place your project code under `~/esos/bsp/spacemit/applications` and control what gets compiled by editing `~/esos/bsp/spacemit/applications/SConscript`.
+- The K3 board has two RCPUs. RCPU0 is responsible for power and performance management in coordination with the main core — do not modify it. Custom real-time tasks should be implemented on RCPU1.
+- It is recommended to place your project code under `~/esos/bsp/spacemit/applications`. Build configuration is managed by editing the `~/esos/bsp/spacemit/applications/SConscript` script.
 
 The example below uses a cross-core RPMsg communication sample to walk through configuring and building a custom project. Cross-compilation is used, but the same steps apply when building directly on the board.
 
@@ -263,7 +263,7 @@ group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH, CCFLA
 Return('group')
 ```
 
-RCPU0 keeps the default `main.c` — it just needs to compile without errors. RCPU1 is pointed at the custom application. The build system compiles separate binaries for each RCPU, generates the board-specific DTBs, and packages everything into `esos.itb`.
+RCPU0 uses the default `main.c` — it only needs to compile cleanly, with no additional functionality. RCPU1 is directed to build the custom program. When the build command runs, it compiles separate binaries for RCPU0 and RCPU1, along with device tree blobs (DTBs) for the respective boards, and then packages everything into `esos.itb`.
 
 ### Running the Cross-Compilation
 
@@ -310,8 +310,8 @@ cd ~/k3-rt-rpmsg-examples/01_sensor_stream
 sudo ./k3_sensor_stream -n 100 -p 20
 ```
 
-`-n <count>` — number of samples or log entries to receive (sensor and log examples)
-`-p <ms>` — small-core reporting interval in milliseconds (sensor and log examples)
+`-n <count>`: number of samples or log entries to receive (sensor and log examples)
+`-p <ms>`: small-core reporting interval in milliseconds (sensor and log examples)
 
 Terminal output:
 
@@ -342,13 +342,7 @@ cp ./rt-perf-test/SConscript ./SConscript
 Open `~/esos/bsp/spacemit/platform/rt24/os1_rcpu/rt24_os1_rcpu_defconfig` and change:
 
 ```
-CONFIG_RT_TICK_PER_SECOND=100
-```
-
-to:
-
-```
-CONFIG_RT_TICK_PER_SECOND=1000
+CONFIG_RT_TICK_PER_SECOND=100  →  change to 1000
 ```
 
 ### Building and Flashing
