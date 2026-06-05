@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Network Connection
 
-This section provides instructions on how to connect to both wired and wireless networks using the Bianbu GNOME system as example.
+This section provides instructions on how to connect to both wired and wireless networks using the Bianbu GNOME system as an example.
 
 ## Connecting to a Wired Network
 

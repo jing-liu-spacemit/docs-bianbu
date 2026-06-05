@@ -8,7 +8,7 @@ Bianbu V2.0 will reach end of maintenance on July 31, 2025. We recommend using v
 
 Build from Ubuntu **24.04** sources.
 
-Bianbu V2.0 source：
+Bianbu V2.0 source:
 
 ```
 Types: deb
@@ -19,7 +19,7 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 ```
 
 - Replace `<version>` with the actual version number (e.g., `v2.0.4`).
-- To download source packages, modify `Types: deb` to Types: `deb deb-src`.
+- To download source packages, modify `Types: deb` to `Types: deb deb-src`.
 
 ## V2.0.4
 

@@ -22,13 +22,13 @@ If a regular user forgets their password, it can be reset using the `root` accou
 
    ![](static/tmphgeanjg5.PNG)
 
-4. Run `export LANG=en_US.UTF-8` to temporarily switch the terminal language to English and avoid character encoding issues:
+4. Run `export LANG=en_US.UTF-8` to temporarily switch the terminal language to English and avoid character encoding issues.
 
-5. Run the command `passwd username` to change the user's password, for example, to reset the password for user `bianbu`, as shown below
+5. Run the command `passwd username` to change the user's password, for example, to reset the password for user `bianbu`, as shown below:
 
    ![](static/tmpst8dy3yi.PNG)
 
-6. Press **Ctrl + Alt + F1** to return to the login screen. You can now log in with the new password..
+6. Press **Ctrl + Alt + F1** to return to the login screen. You can now log in with the new password.
 
 ## System Update
 

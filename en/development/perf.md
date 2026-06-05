@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # Perf Usage Note
 
-(For basic usage of the perf tool, please refer to the [official tutorial](https://perf.wiki.kernel.org/index.php/Tutorial). This will be not mentioned in this article.)
+(For basic usage of the perf tool, please refer to the [official tutorial](https://perf.wiki.kernel.org/index.php/Tutorial). This will not be mentioned in this article.)
 
 The current support for perf on RISC-V is related to the following software/hardware frameworks/specifications:
 

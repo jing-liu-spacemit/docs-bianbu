@@ -6,27 +6,27 @@ sidebar_position: 4
 
 Python 3 is preinstalled on the Bianbu OS. You are advised to use a correct package management tool when installing third-party Python libraries. Otherwise, the dependence on software packages may be damaged.
 
-In Bianbu OS, you can install python dependencies in two ways：
+In Bianbu OS, you can install python dependencies in two ways:
 
-- Install preconfigured system Python packages using apt。
-- Create a virtual environment and install the packages using the pip package manager。
+- Install preconfigured system Python packages using apt.
+- Create a virtual environment and install the packages using the pip package manager.
 
 ## Install Python packages using apt
 
-In Bianbu OS, it is recommended to install Python3 packages via apt. These packages are usually pre-compiled and therefore faster to install. apt manages the dependencies of all packages and includes all the sub-dependencies needed to run the package when installed. Also, apt makes sure you don't break other packages when you uninstall them。
-For example, to install scipy, the scientific computing library for Python, run the following command：
+In Bianbu OS, it is recommended to install Python3 packages via apt. These packages are usually pre-compiled and therefore faster to install. apt manages the dependencies of all packages and includes all the sub-dependencies needed to run the package when installed. Also, apt makes sure you don't break other packages when you uninstall them.
+For example, to install scipy, the scientific computing library for Python, run the following command:
 
 ```shell
 sudo apt install python3-scipy
 ```
 
-To find Python packages published with apt, use apt search. In most cases, Python packages use the prefix python3- : for example, python3-numpy corresponds to Python's numpy package。
+To find Python packages published with apt, use apt search. In most cases, Python packages use the prefix python3-: for example, python3-numpy corresponds to Python's numpy package.
 
 ## Install Python packages using pip
 
 ### Changes to the pip installation
 
-In Bianbu OS, users cannot use pip to install libraries directly into the system version of Python. Trying to install a Python package system-wide using pip will output an error similar to the following：
+In Bianbu OS, users cannot use pip to install libraries directly into the system version of Python. Trying to install a Python package system-wide using pip will output an error similar to the following:
 
 ```shell
 ➜  ~ pip install numpy
@@ -52,17 +52,17 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-Packages installed via pip must be installed into the Python virtual environment (venv). A virtual environment is a container where you can securely install third-party modules so that they don't interfere with your system Python environment。
+Packages installed via pip must be installed into the Python virtual environment (venv). A virtual environment is a container where you can securely install third-party modules so that they don't interfere with your system Python environment.
 
 ### Using `pip` in a virtual environment
 
-To use a virtual environment, create a container to store your Python environment. You can do this in a number of ways, depending on how you want to use Python. Let's take the virtualenv tool as an example.First install virtualenv on your system's python environment：
+To use a virtual environment, create a container to store your Python environment. You can do this in a number of ways, depending on how you want to use Python. Let's take the virtualenv tool as an example. First install virtualenv on your system's python environment:
 
 ```shell
 sudo apt install python3-virtualenv
 ```
 
-Run the following command to create the virtual environment configuration folder (myenv can be replaced with any name you like)：
+Run the following command to create the virtual environment configuration folder (myenv can be replaced with any name you like):
 
 ```shell
 virtualenv myenv
@@ -82,7 +82,7 @@ Then you should see a prompt similar to the following:
 
 The pyenv command prompt prefix indicates that the current terminal session is in a virtual environment named pyenv.
 
-To check if you are in a virtual environment, use pip list to see a list of installed packages：
+To check if you are in a virtual environment, use pip list to see a list of installed packages:
 
 ```shell
 (myenv) ➜  ~ pip list
@@ -105,7 +105,7 @@ Installing collected packages: wheel
 Successfully installed wheel-0.44.0
 ```
 
-You can verify that the installation was successful by running python3 and then importing the installed module。
+You can verify that the installation was successful by running python3 and then importing the installed module.
 
 ```shell
 (myenv) ➜  ~ python3
@@ -146,7 +146,7 @@ Users are strongly advised to use **Python 3.12 or later**. In general, it is re
 
 ### Use pyenv to manage Python versions
 
-pyenv is a very popular Python version management tool that allows you to easily install, manage, and switch between multiple versions of Python. You are free to switch between different versions of Python depending on your project's needs. Here's how to configure multiple versions of Python using pyenv。
+pyenv is a very popular Python version management tool that allows you to easily install, manage, and switch between multiple versions of Python. You are free to switch between different versions of Python depending on your project's needs. Here's how to configure multiple versions of Python using pyenv.
 
 See also for more information[The official pyenv tutorial](https://github.com/pyenv/pyenv)
 
@@ -167,7 +167,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-For Bash：
+For Bash:
 
 ```shell
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc

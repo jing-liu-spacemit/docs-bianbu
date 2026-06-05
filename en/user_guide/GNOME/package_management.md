@@ -32,13 +32,13 @@ apt-get install hello
 
 ## Remove a Package
 
-To uninstall a package while preserving its configuration files — for example, `hello`, run the following command::
+To uninstall a package while preserving its configuration files — for example, `hello`, run the following command:
 
 ```shell
 apt-get remove hello
 ```
 
-To completely remove a package along with its configuration files, run the following command::
+To completely remove a package along with its configuration files, run the following command:
 
 ```shell
 apt-get purge hello

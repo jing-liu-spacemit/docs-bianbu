@@ -10,7 +10,7 @@ It is recommended to use Ubuntu 20.04/22.04 as the host system, with Docker CE a
 
 ### Docker
 
-For docker ce installation, refer to [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
+For Docker CE installation, refer to [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
 
 ### QEMU
 
@@ -187,9 +187,9 @@ chroot $TARGET_ROOTFS /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get -y --
 Different variants have different metapackages:
 
 - Minimal: `bianbu-minimal`
-- Desktop Desktop Version: `bianbu-desktop`, `bianbu-desktop-zh`, `bianbu-desktop-en`, `bianbu-desktop-minimal-en`, `bianbu-standard`, `bianbu-development`
+- Desktop Version: `bianbu-desktop`, `bianbu-desktop-zh`, `bianbu-desktop-en`, `bianbu-desktop-minimal-en`, `bianbu-standard`, `bianbu-development`
 - NAS: `bianbu-nas`
-- LXQt Desktop Version：`bianbu-desktop-lite`
+- LXQt Desktop Version: `bianbu-desktop-lite`
 
 GNOME, LXQt, and NAS variants are all based on Minimal. It is recommended to install the Minimal meta-package first, then install the corresponding meta-packages.
 

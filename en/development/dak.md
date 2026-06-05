@@ -8,7 +8,7 @@ sidebar_position: 11
 
 The package hosting service [http://archive.spacemit.com/bianbu-community/](http://archive.spacemit.com/bianbu-community/) is a supplement to the Bianbu repository, supporting community developers to upload packages and providing access services.
 
-This document describes how to upload packages to the package hosting service. The entire process can be completed entirely on the development board, similar to the Debian upload process.
+This document describes how to upload packages to the package hosting service. The entire process can be completed on the development board, similar to the Debian upload process.
 
 ## Prerequisites
 

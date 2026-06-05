@@ -5,7 +5,7 @@ slug: /development
 
 # Development Guide
 
-Below are some development guide:
+Below are some development guides:
 
 - [Kernel Compile](kernel_compile.md)
 - [Qt User Guide](qt.md)

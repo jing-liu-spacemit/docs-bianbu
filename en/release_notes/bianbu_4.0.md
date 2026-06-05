@@ -23,7 +23,7 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 
 **Release Date:** 2026-05-29
 
-The corresponding **BSP version:** [V1.0.2](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+The corresponding **BSP version:** [v1.0.2](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
 
 ### LXQt Desktop
 
@@ -51,7 +51,7 @@ The corresponding **BSP version:** [V1.0.2](https://spacemit.com/community/docum
 
 **Note:** Bianbu 4.0 images support K3 only.
 
-The corresponding **BSP version:** [V1.0.0](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
+The corresponding **BSP version:** [v1.0.0](https://spacemit.com/community/document/info?lang=en&nodepath=software/SDK/buildroot/k3_buildroot/release_notes/bl-v1.0.y.md)
 
 ### LXQt Desktop
 

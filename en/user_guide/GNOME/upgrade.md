@@ -34,6 +34,7 @@ Both **Bianbu GNOME Desktop Version** and **Bianbu NAS** support online upgrades
 >   - Choose **Remove** when prompted to delete obsolete packages
 >
 > **Note:**
+>
 > - **Do not interrupt or force-close** the update process, as this may lead to system inconsistencies or corrupted packages.
 > - If you encounter any issues during the upgrade, please refer to the [FAQs](../../faqs.md#update).
 
@@ -70,16 +71,16 @@ Follow the terminal prompts to complete the upgrade. Reboot after the process fi
 2. Launch the **Software Updater** application.
 
    ![Updater](../../static/updater_en.png)
-  Alternatively, you can launch Software Updater via **Settings** → **System** → **Software Updates**.
-  ![Updater01](../../static/updater01_en.png)
-1. Wait for update checking to complete.
+   Alternatively, you can launch Software Updater via **Settings** → **System** → **Software Updates**.
+   ![Updater01](../../static/updater01_en.png)
+   Wait for update checking to complete.
 
-2. If a new version is detected, click **Upgrade...** to begin.
+3. If a new version is detected, click **Upgrade...** to begin.
 
    ![Update Prompt](../../static/updater02_en.png)
 
    > To cancel the upgrade, click **OK**.
 
-3. Follow the upgrade wizard step by step.
+4. Follow the upgrade wizard step by step.
 
-4. Reboot the system to apply changes.
+5. Reboot the system to apply changes.

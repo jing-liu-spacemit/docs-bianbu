@@ -17,7 +17,7 @@ When a desktop login manager is not required, you can directly launch Labwc to p
 
 1. Install labwc
 2. Configure `getty@tty1.service` to automatically log in to the specified user when the system starts
-3. Configure `.bashrc` or `.zshrc` in the user directory to start start Labwc upon login  
+3. Configure `.bashrc` or `.zshrc` in the user directory to start Labwc upon login  
 4. Configure the `autostart` file in the Labwc configuration directory to start the application automatically  
 
 ### Install labwc

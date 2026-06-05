@@ -71,7 +71,7 @@ The corresponding **Buildroot version:** [v1.0](https://www.spacemit.com/communi
 - MPP, SpacemiT multimedia processing platform, provides C API and sample
 - Mesa 3D 22.3.5
 
-### Know issue
+### Known issue
 
 - Unable to wake up after suspend for a long time
 

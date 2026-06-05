@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Bianbu V2.1 Release Notes [End of Life]
 
-Buildroot V2.1 will reach end of maintenance on July 31, 2025. We recommend using version 2.2 or later. If you have any questions, please contact us.
+Bianbu V2.1 will reach end of maintenance on July 31, 2025. We recommend using version 2.2 or later. If you have any questions, please contact us.
 
 Build from **Ubuntu 24.04.1** sources.
 

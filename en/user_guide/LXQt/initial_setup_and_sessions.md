@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Initial Startup and Sessions
+# Initial Setup and Sessions
 
 This section explains what happens the first time you power on the system and how user sessions work. The startup wizard guides you through basic configuration, including language, location, keyboard layout, and user account setup. After completing the wizard, the system reboots and displays the login screen.
 
