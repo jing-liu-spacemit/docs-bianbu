@@ -6,7 +6,7 @@ sidebar_position: 2
 
 This section explains what happens the first time you power on the system and how user sessions work. The startup wizard guides you through basic configuration, including language, location, keyboard layout, and user account setup. After completing the wizard, the system reboots and displays the login screen.
 
-## Startup Wizard (Initial Setup)
+## Startup Wizard
 
 The startup wizard runs automatically on first boot and walks you through the required configuration steps in order.
 
@@ -92,7 +92,7 @@ Before applying the settings, the system displays a confirmation dialog. Once yo
 
 ![Applying configuration](static/installing.png)
 
-The system writes the configuration and prepares the environment. Keep the device powered on to avoid incomplete setup.
+The system writes the configuration and prepares the environment. Do not power off the device during this process.
 
 ## Completing the Setup
 
@@ -111,7 +111,7 @@ When the setup is finished, select **Restart System**. After reboot, the followi
 
 After the system restarts, the login screen appears. Log in using the username and password created during setup.
 
-On the first login, the system may take a short time to initialize user-specific settings. This is normal.
+On the first login, the system may take a short time to initialize user-specific settings — this is normal.
 
 ![Action buttons](static/action-buttons.jpg)
 
@@ -121,8 +121,6 @@ The login screen provides the following actions:
 - **Restart**
 - **Power Off**
 - **Switch User**
-
-Click the corresponding button to perform the desired action.
 
 ### Logging In as a Specific User
 
