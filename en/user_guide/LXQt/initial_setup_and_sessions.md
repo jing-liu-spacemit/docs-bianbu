@@ -6,7 +6,7 @@ sidebar_position: 2
 
 This section explains what happens the first time you power on the system and how user sessions work. The startup wizard guides you through basic configuration, including language, location, keyboard layout, and user account setup. After completing the wizard, the system reboots and displays the login screen.
 
-## Startup Wizard
+## Startup Wizard (Initial Setup)
 
 The startup wizard runs automatically on first boot and walks you through the required configuration steps in order.
 
