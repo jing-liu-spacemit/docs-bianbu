@@ -19,6 +19,22 @@ Signed-By: /usr/share/keyrings/bianbu-archive-keyring.gpg
 - 使用此源即可安装到后续的2.3.x（如2.3.1）发布的包，其存放在 `bianbu-v2.3-updates`。
 - 如需下载源码，请将`Types: deb`改成`Types: deb deb-src`。
 
+## V2.3.5
+
+**发布日期：** 2026-06-09
+
+对应的 **BSP** 版本：[v2.2.9](https://www.spacemit.com/community/document/info?lang=zh&nodepath=software/SDK/buildroot/k1_buildroot/release_notes/bl-v2.2.y.md)
+
+### LXQt 桌面组件主要更新
+
+1. **UI**
+   - 优化 Calamares 安装程序界面，兼容小分辨率屏幕
+   - 优化登录界面，兼容小分辨率屏幕
+   - 优化工作区切换动画
+
+2. **应用**
+   - Bianbu 控制中心新增外观、语言、桌面、通知和关于模块。
+
 ## V2.3.3
 
 **发布日期：** 2026-03-02
