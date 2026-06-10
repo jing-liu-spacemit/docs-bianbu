@@ -25,6 +25,8 @@ This guide describes two ways to change the highest-priority boot device. Choose
 
 You can specify the secondary boot device by modifying TLV field `0x83` in the EEPROM. This operation is performed in the U-Boot shell.
 
+#### Modify in U-Boot command line
+
 **Prerequisite:** When the board powers on, press `s` promptly to interrupt the automatic boot process and enter the U-Boot command-line environment.
 
 **Steps:**
@@ -62,6 +64,25 @@ EEPROM data loaded from device to memory.
 [  22.380] Checksum is valid.
 => reset
 ```
+
+
+#### Modify via fastboot command
+
+**Precondition**：When the development board powers on and begins booting, press the 's' key in time to interrupt the automatic boot process. After entering the U-Boot command-line interface, run the command `fastboot 0` to switch the board to fastboot mode.
+
+**Procedure**：
+1. Boot the development board into fastboot mode and connect it to the PC via USB. Ensure that the fastboot utility is installed on the PC.
+2. Run the command `fastboot oem config:write SecondBootDev@eeprom:SSD` on the PC.
+3. Run the command `fastboot oem config:flush` on the PC.
+4. Reboot the development board.
+
+After the system reboots, it will first attempt to load the image from the SSD. The corresponding values for each storage medium (case-sensitive) are:
+
+* **SSD**: `SSD`
+* **UFS**: `UFS`
+* **eMMC**: `MMC`
+* **USB**: `USB`
+
 
 ### Method 2: Modify the DTS (Device Tree Source)
 
